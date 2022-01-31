@@ -1,0 +1,30 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+	 "lint:fix": "eslint ./ --fix"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "author": "Volodymyr",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.10",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.7.0",
+    "eslint-plugin-react": "^7.28.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.4.6",
+    "jest": "^27.4.7",
+    "moment": "^2.29.1"
+  }
+}
