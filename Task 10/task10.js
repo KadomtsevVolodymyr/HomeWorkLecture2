@@ -1,15 +1,15 @@
 export  const invertObject = (object) => {
-  const objectVakues = Object.values(object);
+  const objectValues = Object.values(object);
 
-  for (let i = 0; i < objectVakues.length; i++) {
-    const string = objectVakues[i];
+  for (let i = 0; i < objectValues.length; i++) {
+    const string = objectValues[i];
 
-    objectVakues.splice(i, 1);
+    objectValues.splice(i, 1);
 
     i--;
 
-    for (let j = 0; j < objectVakues.length; j++) {
-      if (objectVakues.indexOf(string) != -1) {
+    for (let j = 0; j < objectValues.length; j++) {
+      if (objectValues.indexOf(string) !== -1) {
         return null;
       }
     }
