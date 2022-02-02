@@ -1,7 +1,7 @@
 import { transformState } from './task8';
 
 describe('transformState', () => {
-  test('t should change the `state` based on the given `transforms` and return it.', () => {
+  test('should change the `state` addProperties clear addProperties', () => {
     const result = transformState({
       foo: 'bar', name: 'Jim', another: 'one',
     },
@@ -23,7 +23,7 @@ describe('transformState', () => {
     });
   });
 
-  test('t should change the `state` based on the given `transforms` and return it.', () => {
+  test('should change the `state` addProperties', () => {
     const result = transformState({},
       [
         {
@@ -37,7 +37,7 @@ describe('transformState', () => {
     );
   });
 
-  test('t should change the `state` based on the given `transforms` and return it.', () => {
+  test('should change the `state` clear', () => {
     const result = transformState({
       foo: 'bar', name: 'Jim', another: 'one',
     },
@@ -49,7 +49,7 @@ describe('transformState', () => {
     expect(result).toStrictEqual({});
   });
 
-  test('t should change the `state` based on the given `transforms` and return it.', () => {
+  test('should change the `state` removeProperties clear addProperties clear addProperties removeProperties', () => {
     const result = transformState({
       foo: 'bar', name: 'Jim', another: 'one',
     },

@@ -12,15 +12,13 @@ export  const transformState = (state, transforms) => {
 
     if (transforms[i].operation === 'removeProperties') {
       const remove = Object.values(transforms[i].properties);
+      
+      for (let j = 0; j < remove.length; j++) {
+        const removeItem = remove[j];
 
-      if (remove.length >= 2) {
-        for (let j = 0; j < remove.length; j++) {
-          const removeItem = remove[j];
-
-          delete newState[removeItem];
-        }
+        delete newState[removeItem];
       }
-      delete newState.remove;
+
     }
   }
 

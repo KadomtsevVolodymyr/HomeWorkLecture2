@@ -1,16 +1,17 @@
 export  const createUrl = (template, params) => {
-  let newString;
+  let newString = template;
+  const regex = /{\w+}/g;
+  const textNeedToReplaced = template.match(regex);
 
-  if (template.indexOf('{id}') !== -1) {
-    newString = template.replace('{id}', params.id);
+  for (let i = 0; i < textNeedToReplaced.length; i++) {
+    const textNeedToReplacedString = textNeedToReplaced[i].toString().replace(/{/g,'').replace(/}/g,'');
+  
+    if (textNeedToReplacedString === Object.keys(params)[i]) {
+      newString = newString.replace(textNeedToReplaced[i], Object.values(params)[i]);
+    } else {
+      newString = newString.replace(textNeedToReplaced[i], undefined);
+    }
   }
-
-  if (template.indexOf('{list}') !== -1) {
-	
-    newString = newString.replace('{list}', params.list);
-	
-  }
-
 
   return newString;
 };

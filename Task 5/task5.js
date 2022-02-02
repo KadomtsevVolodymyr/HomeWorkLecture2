@@ -1,4 +1,6 @@
 export  const reverseWords = (words) => {
+  return words.split(' ').map(function(word) {
+    return word.split('').reverse().join('');
+  }).join(' ');
 
-  return words.split('').reverse().join('').split(' ').reverse().join(' ');
 };

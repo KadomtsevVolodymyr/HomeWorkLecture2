@@ -1,5 +1,5 @@
 export  const isPrime = (number) => {
-  if (number < 0 || number === 1) {
+  if (number <= 1) {
     return false;
   }
 
