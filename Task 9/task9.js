@@ -10,9 +10,10 @@ export  const transformStateWithClones = (state, transforms) => {
       transformState.push({...clone});
 
 
-    } else if (transforms[i].operation === 'clear') { //Пройти по всем елементам
+    } else if (transforms[i].operation === 'clear') { 
       clone = {};
       transformState.push({...clone});
+      
 
     } else if (transforms[i].operation === 'removeProperties') {
       const remove = transforms[i].properties;
