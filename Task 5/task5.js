@@ -1,5 +1,5 @@
-export  const reverseWords = (words) => {
-  return words.split(' ').map(function(word) {
+export const reverseWords = (words) => {
+  return words.split(' ').map((word) => {
     return word.split('').reverse().join('');
   }).join(' ');
 
