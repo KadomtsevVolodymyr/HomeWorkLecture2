@@ -1,15 +1,15 @@
 export const makeArmy = (number) => {
-
   const shooters = [];
+  let i = 0;
    
-  for (let i = 0; i < number; i++) {
-    const shooter = ((index) => {
-      return () => { 
-        return index;
-      };
-    })(i);
- 
+  while (i < number) {
+    const indexOfNumber = i;
+    const shooter = () => {
+      return indexOfNumber;
+    };
+   
     shooters.push(shooter);
+    i++;
   }
    
   return shooters;
