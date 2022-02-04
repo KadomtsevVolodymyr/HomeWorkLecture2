@@ -1,6 +1,6 @@
 import { invertObject } from './task10';
 
-describe('transformState', () => {
+describe('invertObject', () => {
   test('should return `value: key in the object that you return', () => {
     const result = invertObject({});
 

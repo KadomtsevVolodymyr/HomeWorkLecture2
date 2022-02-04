@@ -9,7 +9,6 @@ export  const transformStateWithClones = (state, transforms) => {
       };
       transformState.push({...clone});
 
-
     } else if (transforms[i].operation === 'clear') { 
       clone = {};
       transformState.push({...clone});

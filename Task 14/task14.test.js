@@ -1,6 +1,6 @@
 import { frankenSplice } from './task14';
 
-describe('transformState', () => {
+describe('frankenSplice', () => {
   test('should Copy each element of the first array [1, 2, 3] into the second array [4, 5], tobe [4, 1, 2, 3, 5]', () => {
     const result = frankenSplice([1, 2, 3], [4, 5], 1);
 

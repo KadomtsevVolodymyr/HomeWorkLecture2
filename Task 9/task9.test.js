@@ -1,27 +1,26 @@
 import { transformStateWithClones } from './task9';
 
-describe('transformState', () => {
-  test('t should change the `state` addProperties removeProperties addProperties', () => {
-    const result = transformStateWithClones({
+describe('transformStateWithClones', () => {
+  test('should change the `state` addProperties removeProperties addProperties', () => {
+    const state = {
       foo: 'bar', bar: 'foo',
-    },
-    [
-      {
-        operation: 'addProperties', properties: {
-          name: 'Jim', hello: 'world',
+    };
+    const operation 
+      = [
+        {
+          operation: 'addProperties', properties: {
+            name: 'Jim', hello: 'world',
+          },
+        }, 
+        {
+          operation: 'removeProperties', properties: ['bar', 'hello'],
         },
-      }, 
-      {
-        operation: 'removeProperties', properties: ['bar', 'hello'],
-      },
-      {
-        operation: 'addProperties', properties: {another: 'one'},
-      },
+        {
+          operation: 'addProperties', properties: {another: 'one'},
+        },
 
-    ],
-    );
-
-    expect(result).toStrictEqual( [
+      ];
+    const result = [
       {
         foo: 'bar', bar: 'foo', name: 'Jim', hello: 'world',
       },
@@ -31,15 +30,21 @@ describe('transformState', () => {
       {
         foo: 'bar', name: 'Jim', another: 'one',
       },
-    ],
-    );
+    ];
+
+    expect(transformStateWithClones(state, operation)).toEqual(result);
+
+    expect(state).toEqual({
+      foo: 'bar', bar: 'foo',
+    });
   });
 
   test('should change the `state` addProperties clear clear addProperties', () => {
-    const result = transformStateWithClones({
+    const state = {
       foo: 'bar', bar: 'foo',
-    },
-    [
+    };
+    const operation 
+    = [
       {
         operation: 'addProperties', properties: {yet: 'another property'},
       }, 
@@ -50,12 +55,9 @@ describe('transformState', () => {
           foo: 'bar', name: 'Jim',
         },
       },
-    ],
-			
-    );
+    ];
 
-
-    expect(result).toStrictEqual( [
+    const result = [
       {
         foo: 'bar', bar: 'foo', yet: 'another property',
       },
@@ -64,22 +66,28 @@ describe('transformState', () => {
       {
         foo: 'bar', name: 'Jim',
       },
-    ]
-      ,
+    ];
 
-    );
+    expect(transformStateWithClones(state, operation)).toEqual(result);
+
+    expect(state).toEqual({
+      foo: 'bar', bar: 'foo',
+    });
   });
 
   test('should change the `state` addProperties', () => {
-    const result = transformStateWithClones({},
-      [
+    const state = {};
+    const operation
+      = [
         {
           operation: 'addProperties', properties: { name: 'Jim' },
         }, 
 
-      ],
-    );
+      ];
 
-    expect(result).toStrictEqual([{name: 'Jim'}]);
+    const result = [{name: 'Jim'}];
+
+    expect(transformStateWithClones(state, operation)).toEqual(result);
+    expect(state).toEqual({});
   });
 });

@@ -1,6 +1,6 @@
 import { fearNotLetter } from './task16';
 
-describe('transformState', () => {
+describe('fearNotLetter', () => {
   test('should return the missing letter d', () => {
     const result = fearNotLetter('abce');
 
