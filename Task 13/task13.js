@@ -1,15 +1,9 @@
-export const createAdder = (basic) => {
-  let previousValue = basic;
+export const createAdder = (basic = 0) => {
+  let sum = basic;
 
-  if (previousValue === undefined) {
-    previousValue = 0;
-  }
-
-  const adder = (num1 = 0, num2 = 0, num3 = 0) => {
-    previousValue += num1 + num2 + num3;
-
-    return previousValue;
+  const previousValue = (...manyMoreNum) => {
+    return sum += manyMoreNum.reduce((previous, current) => previous + current, 0);
   };
 
-  return adder;
+  return previousValue;
 };
